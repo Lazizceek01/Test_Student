@@ -1,0 +1,121 @@
+/* Main.css */
+.main-container {
+  margin-left: 260px; /* Sidebar kengligi bilan bir xil bo'lishi kerak */
+  padding: 40px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Rejimlar uchun maxsus klasslar */
+.main-container.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.main-container.light {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Header qismi */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.main-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Toggle Tugmasi */
+.mode-toggle {
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s active, background-color 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mode-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Kontent qismi */
+.content-section {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status-text {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* Input va Buttonlar guruhi */
+.controls-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.main-input {
+  flex: 1;
+  max-width: 320px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #94a3b8;
+  background: transparent;
+  color: inherit;
+  outline: none;
+}
+
+.main-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+/* Tugmalar */
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-update {
+  background-color: #22c55e;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #64748b;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  .controls-group {
+    flex-direction: column;
+  }
+  
+  .main-input {
+    max-width: 100%;
+  }
+}
