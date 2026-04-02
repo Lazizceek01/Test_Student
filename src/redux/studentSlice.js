@@ -1,18 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+
+const initialList = [
+  { id: nanoid(), name: "Shohnazar" },
+  { id: nanoid(), name: "Nursultan" },
+  { id: nanoid(), name: "Rozimuhammad" },
+];
 
 const studentSlice = createSlice({
   name: "students",
   initialState: {
-    list: ["Shohnazar", "Nursultan", "Rozimuhammad"]
+    list: initialList,
   },
   reducers: {
-    addStudent: (state, action) => {
-      state.list.push(action.payload);
+    addStudent: {
+      reducer: (state, action) => {
+        state.list.push(action.payload);
+      },
+      prepare: (name) => ({
+        payload: { id: nanoid(), name },
+      }),
     },
     removeStudent: (state, action) => {
-      state.list = state.list.filter((s, index) => index !== action.payload);
-    }
-  }
+      const id = action.payload;
+      state.list = state.list.filter((s) => s.id !== id);
+    },
+  },
 });
 
 export const { addStudent, removeStudent } = studentSlice.actions;

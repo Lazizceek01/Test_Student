@@ -58,8 +58,8 @@ export default function Students() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        {studentList && studentList.map((st, index) => (
-          <div key={index} style={{ 
+        {studentList && studentList.map((st) => (
+          <div key={st.id} style={{ 
             display: "flex", 
             justifyContent: "space-between", 
             alignItems: "center",
@@ -69,9 +69,9 @@ export default function Students() {
             boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
             border: darkMode ? "1px solid #374151" : "1px solid #e5e7eb"
           }}>
-            <span style={{ fontSize: "18px", color: darkMode ? "white" : "#111" }}>{st}</span>
+            <span style={{ fontSize: "18px", color: darkMode ? "white" : "#111" }}>{st.name}</span>
             <button 
-              onClick={() => dispatch(removeStudent(index))}
+              onClick={() => dispatch(removeStudent(st.id))}
               style={{ 
                 backgroundColor: "#ef4444", 
                 color: "white", 
@@ -81,7 +81,7 @@ export default function Students() {
                 cursor: "pointer"
               }}
             >
-              O'chirish
+              X
             </button>
           </div>
         ))}
